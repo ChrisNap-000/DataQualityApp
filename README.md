@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ## Run
 
 ```bash
-streamlit run app.py
+streamlit run DataQualityApp.py
 ```
 
 Open the URL shown in your terminal (typically `http://localhost:8501`).
