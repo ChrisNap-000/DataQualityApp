@@ -6,7 +6,7 @@ A Streamlit-based data quality assessment dashboard for evaluating datasets befo
 
 ```
 DataQualityApp/
-├── app.py                        # Main Streamlit entry point
+├── DataQualityApp.py                        # Main Streamlit entry point
 ├── requirements.txt
 ├── utils/
 │   ├── data_loader.py            # CSV/Excel file loading
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ## Run
 
 ```bash
-streamlit run app.py
+streamlit run DataQualityApp.py
 ```
 
 Open the URL shown in your terminal (typically `http://localhost:8501`).
