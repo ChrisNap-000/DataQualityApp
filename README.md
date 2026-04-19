@@ -6,7 +6,7 @@ A Streamlit-based data quality assessment dashboard for evaluating datasets befo
 
 ```
 DataQualityApp/
-├── app.py                        # Main Streamlit entry point
+├── DataQualityApp.py                        # Main Streamlit entry point
 ├── requirements.txt
 ├── utils/
 │   ├── data_loader.py            # CSV/Excel file loading
