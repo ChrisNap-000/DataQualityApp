@@ -1,0 +1,204 @@
+sale_price_usd,square_footage,bedrooms,sale_date,neighborhood,property_type
+441540.21,1709.0,3.0,, Downtown ,CONDO
+429103.19,1858.0,3.0,2024-08-28,Riverside,
+356752.82,50000.0,3.0,2022-11-26,Oak Park,Condo
+303427.02,2481.0,2.0,2022-08-31,Maplewood,  Single Family
+373225.37,1704.0,5.0,2021-08-02,Suburbia,Single Family
+414768.85,2450.0,1.0,2024-06-18,Oak Park,Multi-Family
+259061.25,2157.0,4.0,2021-07-25,Downtown, single family 
+,2014.0,2.0,2021-09-29,Hillcrest,
+342798.99,2779.0,2.0,2022-12-29,Oak Park,
+230379.34,1185.0,2.0,2022-04-08,Riverside,Multi-Family
+375755.04,2128.0,2.0,2020-01-26,Riverside,Townhouse
+379612.03,2340.0,3.0,2023-03-25,Downtown,Multi-Family
+431351.72,2048.0,2.0,2021-03-29,Riverside,townhouse
+485624.0,1051.0,3.0,2020-09-18,Riverside,single family
+435639.88,2095.0,6.0,2020-03-07,Hillcrest,Multi-Family
+397383.29,1627.0,4.0,,Riverside,Condo
+295561.73,,3.0,2024-10-03,Hillcrest,single family
+326541.29,2178.0,3.0,2023-04-27,Hillcrest,Multi-Family
+278564.86,1198.0,2.0,2021-04-10,Hillcrest,
+303936.12,1515.0,3.0,2021-11-08,,CONDO
+264284.24,1440.0,4.0,2022-05-28,Hillcrest,townhouse
+226913.57,1462.0,2.0,2021-05-13,Downtown,CONDO
+368463.39,1496.0,2.0,2023-02-01,Riverside,Single Family
+88025.49,1211.0,2.0,2021-11-22,Oak Park,CONDO
+198515.28,1454.0,5.0,,Oak Park,Single Family
+242910.75,526.0,2.0,2023-06-25,Maplewood,single family
+307935.47,1464.0,4.0,2023-11-28,Riverside,Townhouse
+502302.99,2432.0,,2023-09-11,,townhouse
+342555.41,1679.0,3.0,2024-08-11,  Maplewood,Condo
+412566.73,1296.0,3.0,2021-08-31,Hillcrest,Single Family
+319078.76,1375.0,3.0,2024-03-10,Oak Park,Townhouse
+538618.59,2567.0,3.0,2023-09-16,Hillcrest,Single Family
+267931.77,2041.0,,2024-11-22,,townhouse
+269150.64,3080.0,1.0,, Downtown ,Multi-Family
+,,1.0,2022-02-15,Hillcrest,
+299824.3,629.0,4.0,2024-09-14,Riverside,townhouse
+,2495.0,3.0,2021-01-07,Suburbia,Townhouse
+397323.76,2005.0,3.0,2020-06-15,Riverside,Condo 
+328032.81,1868.0,2.0,2021-12-17,Riverside,Multi-Family
+346528.82,2209.0,2.0,2023-01-07,Suburbia,CONDO
+299652.43,2177.0,2.0,2023-05-05,Oak Park,CONDO
+359965.14,2174.0,3.0,2021-11-28,Suburbia,townhouse
+302082.58,1244.0,1.0,2021-07-12,Riverside,Multi-Family
+490279.43,1309.0,4.0,2021-05-14,Downtown,CONDO
+387569.8,1153.0,3.0,2023-02-18, Downtown ,Condo
+423846.66,1324.0,3.0,2021-04-25,,Condo
+-50000.0,1599.0,4.0,2020-05-11,Maplewood,Single Family
+367318.09,,5.0,2023-11-08,Riverside,Condo
+535227.82,1930.0,1.0,2024-08-28,Maplewood,
+536577.45,1789.0,2.0,2021-09-11,Suburbia,Condo
+348650.28,1827.0,4.0,2022-07-02,Oak Park,Single Family
+158671.98,2191.0,2.0,2022-04-28,Hillcrest,CONDO
+233132.2,1614.0,3.0,2022-08-10,Oak Park,single family
+359176.08,1842.0,2.0,2020-02-09,Oak Park,
+,1262.0,3.0,2022-11-24,Downtown,townhouse
+289936.13,1371.0,5.0,2024-03-26,Hillcrest,CONDO
+259197.59,1509.0,3.0,2024-03-17,Maplewood,Single Family
+480714.28,1946.0,2.0,2023-02-07,,Multi-Family
+258057.58,2385.0,3.0,2024-04-01,Downtown,Condo
+376105.53,,3.0,2022-02-07,Maplewood,CONDO
+999999999.0,1969.0,5.0,2020-08-22,Oak Park,single family
+383126.34,2066.0,3.0,2024-06-26,Suburbia,Condo
+596324.21,2288.0,3.0,2022-06-10,Suburbia,Townhouse
+375049.29,1987.0,2.0,2021-03-19,,Condo
+370886.36,585.0,2.0,2021-07-21,Downtown,Multi-Family 
+265320.63,2370.0,3.0,2020-11-16,Riverside,Single Family
+622016.92,1315.0,6.0,2022-07-11,,CONDO
+311491.77,2351.0,5.0,,,townhouse
+261048.56,1815.0,2.0,2020-05-31,Oak Park,Single Family
+372745.99,1307.0,2.0,2023-04-06,Maplewood,Condo
+497789.4,2752.0,3.0,2023-08-27,,
+380154.73,1813.0,3.0,2021-07-07,Hillcrest,Townhouse
+203648.51,1384.0,2.0,2020-02-22,,single family
+154032.99,1912.0,1.0,2022-12-03,Suburbia,Condo
+243769.63,1845.0,3.0,2020-06-24,Hillcrest,Single Family
+315728.55,2248.0,1.0,2024-10-07,Downtown,Condo
+350511.35,2288.0,,2024-01-04,,Multi-Family
+173695.98,2043.0,,2024-04-25,Downtown,CONDO
+326586.3,1237.0,99.0,2023-06-22,Downtown,CONDO
+381424.73,1658.0,4.0,2023-09-05,Riverside,
+428708.46,2720.0,2.0,2020-09-15,Maplewood,
+268418.97,2099.0,3.0,2023-11-06,,CONDO
+323534.32,3114.0,1.0,2024-05-07,Oak Park,CONDO
+,2612.0,,2024-07-04,,Multi-Family
+239366.5,-145.0,2.0,2023-10-01,,Townhouse
+431252.58,1648.0,2.0,2024-09-17,Downtown,
+234900.64,1839.0,3.0,2023-09-29,Riverside,townhouse
+402194.16,1369.0,,2023-01-02,Oak Park,single family
+,1731.0,3.0,2021-10-16,Hillcrest,
+282307.8,3073.0,3.0,2023-03-25,Suburbia,Townhouse
+338435.17,2103.0,5.0,2020-06-14,Hillcrest,Townhouse
+385711.26,2197.0,3.0,2020-05-20,,townhouse
+426743.47,,3.0,2021-04-26,Suburbia,townhouse
+446864.5,1504.0,2.0,2020-12-09,,single family
+388531.74,1518.0,2.0,2021-06-25,Riverside,Multi-Family
+384115.2,2376.0,3.0,2023-02-26,Oak Park,
+386139.56,2665.0,4.0,2020-10-04,Maplewood,single family
+274626.38,1336.0,3.0,2020-05-13,Riverside,single family
+347348.61,2459.0,2.0,2023-07-25,,CONDO
+303052.56,2109.0,4.0,2021-04-05,,townhouse
+333871.43,1787.0,4.0,2023-03-05,Hillcrest,single family
+151243.11,1569.0,3.0,2020-04-16,Maplewood,single family
+569045.56,1071.0,3.0,2022-10-09,,Condo
+342717.11,2926.0,3.0,2020-12-21,Hillcrest,Multi-Family
+320830.63,2208.0,3.0,2023-06-08,Downtown,townhouse
+502302.99,2432.0,,2023-09-11,,townhouse
+369686.12,2311.0,3.0,2020-06-07,,Condo
+382408.4,1043.0,2.0,2023-11-25,,CONDO
+320099.26,1440.0,1.0,2024-09-05,Riverside,single family
+432206.02,1934.0,3.0,2021-01-12,,Condo
+330763.9,2583.0,1.0,2022-12-04,Oak Park,Multi-Family
+453099.95,888.0,3.0,2021-09-03,Hillcrest,townhouse
+359707.75,,1.0,2021-06-08,Downtown,townhouse
+,1559.0,3.0,2022-09-07,Oak Park,townhouse
+319889.63,2319.0,3.0,2021-04-18,Downtown,single family
+465859.56,1735.0,4.0,2024-03-21,Suburbia,CONDO
+384361.83,2859.0,5.0,2024-09-01,Hillcrest,single family
+379307.25,1789.0,4.0,2024-09-01,Riverside,single family
+447554.51,2265.0,2.0,2021-03-27,Hillcrest,townhouse
+293771.25,2255.0,3.0,2023-11-27,Riverside,
+411167.63,2419.0,2.0,2020-01-13,Riverside,Multi-Family
+496564.88,3189.0,2.0,2022-05-20,Maplewood,townhouse
+177508.22,1611.0,6.0,2023-03-24,Oak Park,Condo
+305348.5,1261.0,4.0,2023-05-01,Oak Park,CONDO
+397359.24,1394.0,3.0,2022-04-12,Riverside,single family
+358704.71,1919.0,,2024-08-30,Maplewood,townhouse
+,4112.0,5.0,2020-10-28,Oak Park,Townhouse
+390405.09,1870.0,5.0,2021-12-12,Oak Park,
+367457.78,1445.0,3.0,2022-11-02,,CONDO
+,2112.0,3.0,,Hillcrest,townhouse
+,2372.0,3.0,2024-04-22,,Townhouse
+248716.89,1336.0,2.0,2022-03-29,Downtown,Condo
+455712.22,1408.0,,2022-05-01,Oak Park,Single Family
+217954.34,956.0,3.0,2021-10-08,Maplewood,
+425193.3,1722.0,5.0,2021-10-22,Maplewood,single family
+327422.37,680.0,4.0,2024-07-04,Riverside,Townhouse
+446337.61,2214.0,3.0,,Downtown,Townhouse
+500.0,1793.0,2.0,2021-07-19,Hillcrest,Condo
+327653.72,1345.0,4.0,2024-04-11,,Condo
+506464.37,1806.0,1.0,2021-03-09,Suburbia,
+289829.34,1362.0,2.0,2024-12-31,Riverside,CONDO
+226304.93,931.0,,2020-09-04,Hillcrest,Condo
+244228.91,1409.0,3.0,2024-03-03,Hillcrest,Condo
+428182.29,1939.0,5.0,2021-09-19,Oak Park,Multi-Family
+325461.19,,2.0,2022-09-05,,townhouse
+495353.41,1910.0,2.0,2024-06-07,Maplewood,Condo
+209814.89,3055.0,3.0,2023-03-13,Maplewood,Condo
+235702.97,2543.0,4.0,2021-04-05,Maplewood,Townhouse
+,1303.0,3.0,2023-07-08,Riverside,single family
+379698.47,1672.0,6.0,2023-11-14,Riverside,townhouse
+230869.65,1994.0,5.0,2021-07-15,Suburbia,Multi-Family
+355820.87,1731.0,3.0,2022-05-20,Suburbia,CONDO
+398247.24,1485.0,4.0,2024-02-24,Riverside,Multi-Family 
+331434.1,1764.0,2.0,2020-02-29,Maplewood,
+227915.64,2180.0,2.0,2021-05-21,Downtown,single family
+12000000.0,2143.0,4.0,,Hillcrest,
+225426.12,2899.0,4.0,2024-10-26,Hillcrest,Multi-Family
+503803.66,938.0,2.0,2021-01-07,Downtown,Townhouse
+381424.73,1658.0,4.0,2023-09-05,Riverside,
+317233.79,2310.0,4.0,2024-05-11,,Single Family
+415655.36,1304.0,3.0,,Hillcrest,Townhouse
+464282.28,1994.0,2.0,2024-02-06,Riverside,Townhouse
+375988.28,1517.0,2.0,2023-12-10,Maplewood,CONDO
+,2136.0,2.0,2024-06-13,Suburbia,townhouse
+298172.98,1057.0,,,Hillcrest,Condo
+371409.37,1008.0,2.0,2023-12-18,,Townhouse
+382875.11,2153.0,1.0,2020-09-15,Oak Park,single family
+317793.85,1607.0,2.0,2020-02-05,Downtown,single family
+326584.66,973.0,4.0,2022-11-21,Suburbia,Single Family
+217181.4,1403.0,3.0,2021-05-04,Maplewood,townhouse 
+377669.08,3092.0,3.0,2020-06-23,,
+432254.49,3086.0,4.0,2022-07-10,Oak Park,Multi-Family
+356023.02,2295.0,,2022-07-30,Downtown,townhouse
+281997.53,2315.0,6.0,2024-04-05,Riverside,Single Family
+266078.25,2560.0,3.0,2024-09-07,Riverside,Townhouse
+285488.02,,,2020-06-20,Oak Park,
+,1080.0,3.0,2020-11-08,,Single Family
+,1849.0,3.0,2024-12-18,Oak Park,Townhouse
+507921.28,2109.0,6.0,2024-08-03,Downtown,
+443128.01,1509.0,0.0,2024-10-13,Maplewood,Townhouse
+432190.25,2077.0,2.0,2022-02-15,Riverside,single family
+399671.42,2015.0,3.0,2021-03-13,Maplewood,Multi-Family
+342289.83,2671.0,2.0,,Hillcrest,Multi-Family
+504993.44,1712.0,6.0,2022-09-02,Suburbia,
+293370.23,2275.0,4.0,2021-12-27,Maplewood,Multi-Family
+351300.19,2323.0,3.0,2022-05-02,Oak Park,CONDO
+386163.6,1536.0,5.0,2023-03-01,Oak Park,Single Family
+539679.3,1808.0,2.0,2021-06-01,,
+,1305.0,3.0,2022-10-02,,CONDO
+338435.17,2103.0,5.0,2020-06-14,Hillcrest,Townhouse
+158122.88,1669.0,3.0,2022-06-06,Riverside,single family
+,1426.0,5.0,2021-03-22,Oak Park,Single Family
+346417.4,2498.0,2.0,,,Condo
+207525.18,832.0,4.0,2023-02-15,Hillcrest,
+189251.68,,2.0,2022-05-21,Suburbia,
+421400.05,1890.0,3.0,2021-03-08,Suburbia,
+279794.69,1446.0,4.0,2024-03-11,Riverside,Single Family
+269772.27,2166.0,2.0,2024-07-07,Suburbia,Single Family
+384644.82,2685.0,3.0,2021-07-20,Riverside,Townhouse
+,-200.0,3.0,,Riverside,single family
+361092.26,2453.0,5.0,2020-09-30,Riverside,CONDO
+261614.26,772.0,1.0,2023-07-04,  Oak Park,Multi-Family
+432718.32,,1.0,2020-08-30,Downtown, Multi-Family
