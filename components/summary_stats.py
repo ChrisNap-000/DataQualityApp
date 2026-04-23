@@ -38,7 +38,7 @@ def render_summary(df: pd.DataFrame) -> None:
         desc["Skewness"] = df[num_cols].skew()
         desc["Kurtosis"] = df[num_cols].kurt()
         desc["Mode"] = [safe_mode(df[c]) for c in num_cols]
-        st.dataframe(desc.style.format("{:.4f}", na_rep="N/A"), use_container_width=True)
+        st.dataframe(desc.style.format("{:,.2f}", na_rep="N/A"), use_container_width=True)
 
         _render_skewness_flags(df, num_cols)
 
@@ -52,6 +52,6 @@ def _render_skewness_flags(df: pd.DataFrame, num_cols: list[str]) -> None:
     if not high_skew.empty:
         st.warning(
             f"**{len(high_skew)} column(s) have high skewness (|skew| >= 1):** "
-            + ", ".join(f"`{c}` ({v:.2f})" for c, v in high_skew.items())
+            + ", ".join(f"`{c}` ({v:,.2f})" for c, v in high_skew.items())
             + ". Consider transformations before modeling."
         )

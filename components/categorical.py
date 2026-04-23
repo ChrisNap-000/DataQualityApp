@@ -47,7 +47,7 @@ def render_categorical(df: pd.DataFrame) -> None:
         color_continuous_scale="Blues",
         text="Percentage",
     )
-    fig_bar.update_traces(texttemplate="%{text:.1f}%", textposition="outside")
+    fig_bar.update_traces(texttemplate="%{text:.2f}%", textposition="outside")
     fig_bar.update_xaxes(tickangle=45)
     st.plotly_chart(fig_bar, use_container_width=True)
 

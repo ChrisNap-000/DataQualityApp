@@ -63,7 +63,7 @@ def render_correlation(df: pd.DataFrame) -> None:
                     {
                         "Feature 1": num_cols[i],
                         "Feature 2": num_cols[j],
-                        "Correlation": round(r, 4),
+                        "Correlation": round(r, 2),
                         "Strength": "Very High (>0.9)" if abs(r) > 0.9 else "High (>0.8)",
                     }
                 )
