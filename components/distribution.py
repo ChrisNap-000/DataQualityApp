@@ -18,10 +18,10 @@ def render_distributions(df: pd.DataFrame) -> None:
     col_data = df[selected_col].dropna()
 
     m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Mean", f"{col_data.mean():.4f}")
-    m2.metric("Median", f"{col_data.median():.4f}")
-    m3.metric("Std Dev", f"{col_data.std():.4f}")
-    m4.metric("Skewness", f"{col_data.skew():.4f}")
+    m1.metric("Mean", f"{col_data.mean():,.2f}")
+    m2.metric("Median", f"{col_data.median():,.2f}")
+    m3.metric("Std Dev", f"{col_data.std():,.2f}")
+    m4.metric("Skewness", f"{col_data.skew():,.2f}")
 
     left, right = st.columns(2)
     with left:
@@ -72,5 +72,5 @@ def _render_outlier_summary(col_data: pd.Series, col_name: str) -> None:
     o1, o2, o3 = st.columns(3)
     o1.metric("Outlier Count", len(outliers))
     o2.metric("Outlier %", f"{len(outliers) / len(col_data) * 100:.2f}%")
-    o3.metric("IQR", f"{IQR:.4f}")
-    st.caption(f"Lower fence: {lower_fence:.4f}  |  Upper fence: {upper_fence:.4f}")
+    o3.metric("IQR", f"{IQR:,.2f}")
+    st.caption(f"Lower fence: {lower_fence:,.2f}  |  Upper fence: {upper_fence:,.2f}")

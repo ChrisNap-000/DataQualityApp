@@ -21,6 +21,9 @@
 9. [Key Concepts & Calculations](#9-key-concepts--calculations)
 10. [Extending the App](#10-extending-the-app)
 11. [Troubleshooting](#11-troubleshooting)
+12. [Styling & Theme](#12-styling--theme)
+13. [Number Formatting Standards](#13-number-formatting-standards)
+14. [Changelog](#14-changelog)
 
 ---
 
@@ -489,3 +492,82 @@ desc["CV %"] = (desc["Std Dev"] / desc["Mean"].abs() * 100).round(2)
 | VIF shows `NaN` for a feature | Perfect multicollinearity or singular matrix | That feature is a linear combination of others — remove it |
 | Heatmap is slow | Dataset has many columns or rows | The heatmap is capped at 300 rows; consider reducing columns before uploading |
 | `KeyError` on a column name | Column name has leading/trailing whitespace | Strip column names before uploading: `df.columns = df.columns.str.strip()` |
+
+---
+
+## 12. Styling & Theme
+
+The app uses a custom Streamlit theme defined in `.streamlit/config.toml`.
+
+```toml
+[theme]
+primaryColor = "#00BCD4"          # Electric teal — used for selected tabs, buttons, sliders
+backgroundColor = "#0F1117"       # Near-black with a subtle blue tint
+secondaryBackgroundColor = "#1E2130"  # Dark navy — used for sidebar and widget backgrounds
+textColor = "#E2E8F0"             # Soft white
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+```
+
+**Page config** is set in `DataQualityApp.py`:
+
+```python
+st.set_page_config(
+    page_title="Data Quality Dashboard",
+    page_icon="📊",
+    layout="wide",
+)
+```
+
+**Note:** If the tab selection or interactive element color appears red after editing `config.toml`, the Streamlit server must be fully restarted (`Ctrl+C`, then `streamlit run DataQualityApp.py`) for the theme to take effect. The red is Streamlit's built-in default (`#FF4B4B`) and is replaced on restart.
+
+---
+
+## 13. Number Formatting Standards
+
+All numeric values displayed in the app follow these formatting rules:
+
+| Value type | Format spec | Example output |
+|---|---|---|
+| Decimal values (general) | `:,.2f` | `1,234.56` |
+| Percentages | `:.2f%` | `12.34%` |
+| Integer counts | `:,` | `1,234,567` |
+| Correlations | `round(r, 2)` | `0.87` (no thousands — always < 1) |
+
+**Thousands separators** (`,`) are applied to all values that can exceed 999 — including means, standard deviations, IQR, fence values, and the numeric statistics table. Percentages and correlations are excluded since they never exceed three digits.
+
+**Files where formatting is applied:**
+
+| File | Formatted values |
+|---|---|
+| `components/distribution.py` | Mean, Median, Std Dev, Skewness, IQR, Lower/Upper fence |
+| `components/summary_stats.py` | Entire numeric stats table, skewness warning values |
+| `components/null_analysis.py` | Overall Missing % metric, bar chart labels |
+| `components/categorical.py` | Bar chart percentage labels |
+| `components/correlation.py` | Correlated pairs table |
+
+---
+
+## 14. Changelog
+
+### 2026-04-22
+
+**Dark theme & branding**
+- Created `.streamlit/config.toml` with a dark theme: near-black background (`#0F1117`), dark navy sidebar (`#1E2130`), electric teal accent (`#00BCD4`), soft white text (`#E2E8F0`).
+- Added `page_icon="📊"` to `st.set_page_config()` in `DataQualityApp.py`.
+- Set `page_title` to `"Data Quality Dashboard"`.
+
+**Number formatting — 2 decimal places**
+- `distribution.py`: IQR and lower/upper fence values changed from `:.4f` to `:.2f`.
+- `summary_stats.py`: Numeric statistics table changed from `{:.4f}` to `{:.2f}`.
+- `null_analysis.py`: Bar chart labels changed from `:.1f%` to `:.2f%`.
+- `categorical.py`: Bar chart labels changed from `:.1f%` to `:.2f%`.
+- `correlation.py`: Highly correlated pairs table changed from `round(r, 4)` to `round(r, 2)`.
+
+**Number formatting — thousands separators**
+- `distribution.py`: Mean, Median, Std Dev, Skewness metrics updated to `:,.2f`. IQR and fence values updated to `:,.2f`.
+- `summary_stats.py`: Numeric statistics table updated to `{:,.2f}`. Skewness warning values updated to `:,.2f`.
+- `null_analysis.py`: Bar chart labels updated to `:.2f%` (percentages excluded from thousands separator).
+- `categorical.py`: Bar chart labels updated to `:.2f%` (percentages excluded from thousands separator).
