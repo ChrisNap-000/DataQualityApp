@@ -16,17 +16,45 @@ def render_distributions(df: pd.DataFrame) -> None:
     selected_col = st.selectbox("Select a column to inspect", num_cols)
 
     col_data = df[selected_col].dropna()
+    original_count = len(col_data)
+
+    filter_outliers = st.checkbox("Filter outliers")
+    if filter_outliers:
+        method = st.radio("Filter method", ["IQR method", "Percentile clip"], horizontal=True)
+        if method == "IQR method":
+            multiplier = st.select_slider("IQR multiplier", options=[1.5, 3.0], value=1.5)
+            Q1 = col_data.quantile(0.25)
+            Q3 = col_data.quantile(0.75)
+            iqr = Q3 - Q1
+            col_data = col_data[
+                (col_data >= Q1 - multiplier * iqr) & (col_data <= Q3 + multiplier * iqr)
+            ]
+        else:
+            pc1, pc2 = st.columns(2)
+            lower_pct = pc1.number_input("Lower %", min_value=0.0, max_value=49.9, value=1.0, step=0.5)
+            upper_pct = pc2.number_input("Upper %", min_value=50.1, max_value=100.0, value=99.0, step=0.5)
+            col_data = col_data[
+                (col_data >= col_data.quantile(lower_pct / 100))
+                & (col_data <= col_data.quantile(upper_pct / 100))
+            ]
 
     m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Mean", f"{col_data.mean():.4f}")
-    m2.metric("Median", f"{col_data.median():.4f}")
-    m3.metric("Std Dev", f"{col_data.std():.4f}")
-    m4.metric("Skewness", f"{col_data.skew():.4f}")
+    m1.metric("Mean", f"{col_data.mean():,.2f}")
+    m2.metric("Median", f"{col_data.median():,.2f}")
+    m3.metric("Std Dev", f"{col_data.std():,.2f}")
+    m4.metric("Skewness", f"{col_data.skew():,.2f}")
+
+    if filter_outliers:
+        excluded = original_count - len(col_data)
+        st.caption(
+            f"{excluded:,} rows excluded by outlier filter "
+            f"({excluded / original_count * 100:.1f}% of non-null values)."
+        )
 
     left, right = st.columns(2)
     with left:
         fig_hist = px.histogram(
-            df,
+            col_data.to_frame(),
             x=selected_col,
             title=f"Histogram: {selected_col}",
             marginal="rug",
@@ -37,7 +65,7 @@ def render_distributions(df: pd.DataFrame) -> None:
 
     with right:
         fig_box = px.box(
-            df,
+            col_data.to_frame(),
             y=selected_col,
             title=f"Box Plot: {selected_col}",
             color_discrete_sequence=["#10b981"],
@@ -72,5 +100,5 @@ def _render_outlier_summary(col_data: pd.Series, col_name: str) -> None:
     o1, o2, o3 = st.columns(3)
     o1.metric("Outlier Count", len(outliers))
     o2.metric("Outlier %", f"{len(outliers) / len(col_data) * 100:.2f}%")
-    o3.metric("IQR", f"{IQR:.4f}")
-    st.caption(f"Lower fence: {lower_fence:.4f}  |  Upper fence: {upper_fence:.4f}")
+    o3.metric("IQR", f"{IQR:,.2f}")
+    st.caption(f"Lower fence: {lower_fence:,.2f}  |  Upper fence: {upper_fence:,.2f}")

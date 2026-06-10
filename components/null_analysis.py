@@ -47,7 +47,7 @@ def render_null_analysis(df: pd.DataFrame) -> None:
         color_continuous_scale="Reds",
         text="Missing %",
     )
-    fig_bar.update_traces(texttemplate="%{text:.1f}%", textposition="outside")
+    fig_bar.update_traces(texttemplate="%{text:.2f}%", textposition="outside")
     fig_bar.update_xaxes(tickangle=45)
     st.plotly_chart(fig_bar, use_container_width=True)
 

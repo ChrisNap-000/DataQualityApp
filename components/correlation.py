@@ -39,7 +39,37 @@ def render_correlation(df: pd.DataFrame) -> None:
         st.warning("At least 2 numeric columns are required for correlation analysis.")
         return
 
-    corr_matrix = df[num_cols].corr()
+    # Outlier filter — applied row-wise: rows outside bounds in ANY column are dropped.
+    df_num = df[num_cols].copy()
+    original_rows = len(df_num.dropna())
+
+    filter_outliers = st.checkbox("Filter outliers before computing correlations")
+    if filter_outliers:
+        method = st.radio("Filter method", ["IQR method", "Percentile clip"], horizontal=True)
+        mask = pd.Series(True, index=df_num.index)
+        if method == "IQR method":
+            multiplier = st.select_slider("IQR multiplier", options=[1.5, 3.0], value=1.5)
+            for col in num_cols:
+                col_data = df_num[col].dropna()
+                Q1, Q3 = col_data.quantile(0.25), col_data.quantile(0.75)
+                iqr = Q3 - Q1
+                mask &= (df_num[col] >= Q1 - multiplier * iqr) & (df_num[col] <= Q3 + multiplier * iqr)
+        else:
+            pc1, pc2 = st.columns(2)
+            lower_pct = pc1.number_input("Lower %", min_value=0.0, max_value=49.9, value=1.0, step=0.5)
+            upper_pct = pc2.number_input("Upper %", min_value=50.1, max_value=100.0, value=99.0, step=0.5)
+            for col in num_cols:
+                col_data = df_num[col].dropna()
+                mask &= (df_num[col] >= col_data.quantile(lower_pct / 100)) & \
+                        (df_num[col] <= col_data.quantile(upper_pct / 100))
+        df_num = df_num[mask]
+        excluded = original_rows - len(df_num.dropna())
+        st.caption(
+            f"{excluded:,} rows excluded by outlier filter "
+            f"({excluded / original_rows * 100:.1f}% of complete rows)."
+        )
+
+    corr_matrix = df_num.corr()
 
     fig = px.imshow(
         corr_matrix,
@@ -63,7 +93,7 @@ def render_correlation(df: pd.DataFrame) -> None:
                     {
                         "Feature 1": num_cols[i],
                         "Feature 2": num_cols[j],
-                        "Correlation": round(r, 4),
+                        "Correlation": round(r, 2),
                         "Strength": "Very High (>0.9)" if abs(r) > 0.9 else "High (>0.8)",
                     }
                 )
@@ -80,7 +110,7 @@ def render_correlation(df: pd.DataFrame) -> None:
     st.subheader("Variance Inflation Factor (VIF)")
     st.caption("VIF > 5: multicollinearity concern | VIF > 10: severe multicollinearity")
 
-    df_clean = df[num_cols].dropna()
+    df_clean = df_num.dropna()
     if len(df_clean) < 2:
         st.warning("Not enough complete rows to compute VIF.")
         return

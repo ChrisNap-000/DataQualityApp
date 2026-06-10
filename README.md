@@ -2,6 +2,13 @@
 
 A Streamlit-based data quality assessment dashboard for evaluating datasets before machine learning model development.
 
+ ## Links to streamlit apss
+
+| Branch | URL |
+|---|---|
+| main | [DataQualityApp-main](https://dataqualityapp.streamlit.app/) |
+| DEV | [DataQualityApp-Dev](https://dataqualityapp-dev.streamlit.app/) |
+
 ## Project Structure
 
 ```

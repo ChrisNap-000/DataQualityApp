@@ -9,7 +9,7 @@ from utils.data_loader import load_data
 
 st.set_page_config(
     page_title="Data Quality Dashboard",
-    page_icon=None,
+    page_icon="📊",
     layout="wide",
 )
 
