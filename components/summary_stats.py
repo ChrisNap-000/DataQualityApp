@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from utils.report_helpers import get_categorical_cols, get_numeric_cols, safe_mode
+from utils.report_helpers import get_categorical_cols, get_data_warnings, get_numeric_cols, safe_mode
 
 
 def render_summary(df: pd.DataFrame) -> None:
@@ -28,6 +28,49 @@ def render_summary(df: pd.DataFrame) -> None:
         }
     )
     st.dataframe(info, use_container_width=True, hide_index=True)
+
+    st.subheader("Data Quality Warnings")
+    dq_warnings = get_data_warnings(df)
+    if not dq_warnings:
+        st.success("No data quality warnings detected.")
+    else:
+        # Group by check type; render one tab per type that has warnings.
+        _TAB_ORDER = [
+            ("sentinel", "⚠️ Sentinel Values"),
+            ("case",     "⚠️ Case Inconsistency"),
+            ("missing",  "⚠️ High Missingness"),
+            ("skew",     "⚠️ Extreme Skew"),
+        ]
+        grouped: dict[str, list[dict]] = {}
+        for w in dq_warnings:
+            grouped.setdefault(w["check"], []).append(w)
+
+        active = [(key, label) for key, label in _TAB_ORDER if key in grouped]
+        tabs = st.tabs([label for _, label in active])
+
+        for tab, (key, _) in zip(tabs, active):
+            with tab:
+                entries = grouped[key]
+                if key == "sentinel":
+                    cols_detail = ", ".join(
+                        f"**{e['column']}** ({e['message']})" for e in entries
+                    )
+                    st.error(f"Dataset contains extreme outliers in Column(s): {cols_detail}")
+                elif key == "case":
+                    cols_detail = ", ".join(f"**{e['column']}**" for e in entries)
+                    st.warning(f"Case inconsistencies detected in Column(s): {cols_detail}")
+                    for e in entries:
+                        st.caption(f"  {e['column']}: {e['message']}")
+                elif key == "missing":
+                    cols_detail = ", ".join(
+                        f"**{e['column']}** ({e['message']})" for e in entries
+                    )
+                    st.warning(f"High missingness (>15%) in Column(s): {cols_detail}")
+                else:  # skew
+                    cols_detail = ", ".join(
+                        f"**{e['column']}** ({e['message']})" for e in entries
+                    )
+                    st.warning(f"Extreme skewness (|skew| > 10) in Column(s): {cols_detail}")
 
     if num_cols:
         st.subheader("Numeric Statistics")
