@@ -29,10 +29,16 @@ def render_categorical(df: pd.DataFrame) -> None:
         n = len(all_variant_groups[col])
         return f"⚠️ Case variants: {n} group{'s' if n != 1 else ''}" if n else ""
 
+    def _unique_once_count(series: pd.Series) -> int:
+        """Count values that appear exactly once (excluding nulls)."""
+        counts = series.dropna().value_counts()
+        return int((counts == 1).sum())
+
     overview = pd.DataFrame(
         {
             "Column": cat_cols,
-            "Unique Values": [df[c].nunique() for c in cat_cols],
+            "Distinct Values": [df[c].nunique() for c in cat_cols],
+            "Unique Values": [_unique_once_count(df[c]) for c in cat_cols],
             "Missing": [df[c].isnull().sum() for c in cat_cols],
             "Missing %": [(df[c].isnull().sum() / len(df) * 100).round(2) for c in cat_cols],
             "Most Common": [str(safe_mode(df[c])) for c in cat_cols],
@@ -46,6 +52,11 @@ def render_categorical(df: pd.DataFrame) -> None:
 
     st.subheader("Categorical Column Overview")
     st.dataframe(overview, use_container_width=True, hide_index=True)
+    st.caption(
+        "Distinct Values = count of distinct non-null values. "
+        "Unique Values = count of values that appear exactly once (non-null). "
+        "Neither column counts null values."
+    )
 
     affected = {col: grps for col, grps in all_variant_groups.items() if grps}
     if affected:
