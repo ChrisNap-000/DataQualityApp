@@ -1,6 +1,7 @@
 import streamlit as st
 
 from components.categorical import render_categorical
+from components.chris_tab import render_chris_tab
 from components.correlation import render_correlation
 from components.distribution import render_distributions
 from components.null_analysis import render_null_analysis
@@ -35,8 +36,8 @@ if uploaded_file is not None:
             f"{df.shape[0]:,} rows x {df.shape[1]} columns"
         )
 
-        tab_summary, tab_nulls, tab_dist, tab_corr, tab_cat = st.tabs(
-            ["Summary", "Missing Values", "Distributions", "Correlations", "Categorical"]
+        tab_summary, tab_nulls, tab_dist, tab_corr, tab_cat, tab_chris = st.tabs(
+            ["Summary", "Missing Values", "Distributions", "Correlations", "Categorical", "Chris's Tab"]
         )
 
         with tab_summary:
@@ -49,6 +50,8 @@ if uploaded_file is not None:
             render_correlation(df)
         with tab_cat:
             render_categorical(df)
+        with tab_chris:
+            render_chris_tab(df)
 else:
     st.info("Upload a file above to get started.")
     st.markdown(

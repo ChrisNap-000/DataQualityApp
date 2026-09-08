@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from utils.report_helpers import get_categorical_cols, safe_mode
+from utils.report_helpers import count_unique_once, get_categorical_cols, safe_mode
 
 
 def _case_variant_groups(series: pd.Series) -> dict[str, list[tuple[str, int]]]:
@@ -29,16 +29,11 @@ def render_categorical(df: pd.DataFrame) -> None:
         n = len(all_variant_groups[col])
         return f"⚠️ Case variants: {n} group{'s' if n != 1 else ''}" if n else ""
 
-    def _unique_once_count(series: pd.Series) -> int:
-        """Count values that appear exactly once (excluding nulls)."""
-        counts = series.dropna().value_counts()
-        return int((counts == 1).sum())
-
     overview = pd.DataFrame(
         {
             "Column": cat_cols,
             "Distinct Values": [df[c].nunique() for c in cat_cols],
-            "Unique Values": [_unique_once_count(df[c]) for c in cat_cols],
+            "Unique Values": [count_unique_once(df[c]) for c in cat_cols],
             "Missing": [df[c].isnull().sum() for c in cat_cols],
             "Missing %": [(df[c].isnull().sum() / len(df) * 100).round(2) for c in cat_cols],
             "Most Common": [str(safe_mode(df[c])) for c in cat_cols],
