@@ -337,10 +337,13 @@ render_categorical(df: pd.DataFrame) -> None
 **What it renders:**
 
 1. **Categorical Column Overview table** — one row per categorical column, showing:
-   - Unique value count
+   - Distinct value count (distinct non-null values — previously labeled "Unique Values")
+   - Unique value count (non-null values that appear exactly once)
    - Missing count and percentage
    - Most common value (the mode)
    - Count of the most common value
+
+   A caption below the table clarifies these definitions and notes that neither the Distinct nor the Unique column counts null values.
 
 2. **Column selector** — dropdown to pick which categorical column to deep-dive.
 
@@ -440,6 +443,15 @@ This is the same method used by standard box plots. A data point beyond either f
 
 ### Pearson Correlation
 Measures the linear relationship between two numeric variables. Values range from -1 (perfect negative) to +1 (perfect positive). Computed via `pd.DataFrame.corr()`.
+
+### Distinct vs. Unique Values (Categorical Tab)
+These two counts are easy to conflate but measure different things:
+- **Distinct Values** = `series.nunique()` — the number of distinct non-null values in the column, regardless of how many times each occurs.
+- **Unique Values** = the number of non-null values that occur **exactly once** in the column (a stricter, "no duplicates" definition of unique).
+
+Example: `["A", "A", "B"]` has 2 distinct values (A, B) but only 1 unique value (B, since A appears twice).
+
+Nulls are excluded from both counts — they're reported separately in the "Missing" column.
 
 ### Variance Inflation Factor (VIF)
 Quantifies how much a feature's regression coefficient variance is inflated by its correlation with other features.
@@ -551,6 +563,13 @@ All numeric values displayed in the app follow these formatting rules:
 ---
 
 ## 14. Changelog
+
+### 2026-09-07
+
+**Categorical tab — Distinct vs. Unique Values**
+- `categorical.py`: Renamed the existing `nunique()`-based column from "Unique Values" to "Distinct Values" (distinct non-null values).
+- Added a new "Unique Values" column that counts non-null values occurring exactly once (`value_counts() == 1`).
+- Added a caption under the Categorical Column Overview table clarifying both definitions and noting that neither column counts nulls.
 
 ### 2026-04-22
 

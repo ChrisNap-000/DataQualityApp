@@ -46,7 +46,7 @@ Open the URL shown in your terminal (typically `http://localhost:8501`).
 - **Missing Values Tab** — per-column null counts and percentages, bar chart, null heatmap
 - **Distributions Tab** — histogram with rug plot, box plot, IQR-based outlier summary, all-column box overview
 - **Correlations Tab** — Pearson heatmap, high-correlation pair flagging (|r| > 0.8), Variance Inflation Factor (VIF) analysis
-- **Categorical Tab** — unique value overview, frequency bar charts, pie charts (≤15 categories), full value count tables
+- **Categorical Tab** — distinct/unique value overview (nulls excluded from both), frequency bar charts, pie charts (≤15 categories), full value count tables
 
 ## Supported File Formats
 
