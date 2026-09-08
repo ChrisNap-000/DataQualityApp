@@ -18,6 +18,12 @@ def safe_mode(series: pd.Series):
     return mode.iloc[0] if not mode.empty else None
 
 
+def count_unique_once(series: pd.Series) -> int:
+    """Count non-null values that appear exactly once (strict 'unique', not 'distinct')."""
+    counts = series.dropna().value_counts()
+    return int((counts == 1).sum())
+
+
 def get_data_warnings(df: pd.DataFrame) -> list[dict]:
     warnings: list[dict] = []
 
